@@ -1,5 +1,5 @@
 package com.jagrosh.jmusicbot.utils;
 
 public class Constants {
-    String botName = "DJ Yang";
+    public static String botName = "DJ Yang";
 }

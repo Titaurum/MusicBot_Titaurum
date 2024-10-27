@@ -21,7 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
 import com.jagrosh.jmusicbot.Bot;
-
+import com.jagrosh.jmusicbot.utils.Constants;
 
 /**
  *
@@ -42,7 +42,7 @@ public class GUI extends JFrame
     public void init()
     {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JMusicBot");
+        setTitle(Constants.botName);
         JTabbedPane tabs = new JTabbedPane();
         tabs.add("Console", console);
         getContentPane().add(tabs);
