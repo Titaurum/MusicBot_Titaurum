@@ -74,7 +74,6 @@ public class JMusicBot
         Prompt prompt = new Prompt("JMusicBot");
         
         // startup checks
-        //OtherUtil.checkVersion(prompt);
         OtherUtil.checkJavaVersion(prompt);
         
         // load config
@@ -83,6 +82,12 @@ public class JMusicBot
         if(!config.isValid())
             return;
         LOG.info("Loaded config from " + config.getConfigLocation());
+
+        // check bot version
+        if (config.useUpdateAlerts())
+        {
+            OtherUtil.checkVersion(prompt);
+        }
 
         // set log level from config
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)).setLevel(
