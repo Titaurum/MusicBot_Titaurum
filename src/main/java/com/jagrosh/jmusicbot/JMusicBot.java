@@ -27,6 +27,7 @@ import com.jagrosh.jmusicbot.commands.owner.*;
 import com.jagrosh.jmusicbot.entities.Prompt;
 import com.jagrosh.jmusicbot.gui.GUI;
 import com.jagrosh.jmusicbot.settings.SettingsManager;
+import com.jagrosh.jmusicbot.utils.Constants;
 import com.jagrosh.jmusicbot.utils.OtherUtil;
 import java.awt.Color;
 import java.util.Arrays;
@@ -71,11 +72,15 @@ public class JMusicBot
     private static void startBot()
     {
         // create prompt to handle startup
-        Prompt prompt = new Prompt("JMusicBot");
+        Prompt prompt = new Prompt(Constants.botName);
         
         // startup checks
         OtherUtil.checkJavaVersion(prompt);
-        
+
+        // welcome messages
+        LOG.info(Constants.botName + " welcomes you!");
+        LOG.info("You are using version " + Constants.botVersion);
+
         // load config
         BotConfig config = new BotConfig(prompt);
         config.load();
@@ -108,6 +113,8 @@ public class JMusicBot
                 bot.setGUI(gui);
                 gui.init();
 
+                LOG.info(Constants.botName + " welcomes you!");
+                LOG.info("You are using version " + Constants.botVersion);
                 LOG.info("Loaded config from " + config.getConfigLocation());
             }
             catch(Exception e)
